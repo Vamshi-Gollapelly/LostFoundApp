@@ -1,0 +1,8 @@
+<resources>
+    <style name="Theme.LostAndFoundApp"
+        parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#1F3864</item>
+        <item name="colorPrimaryVariant">#2E75B6</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+    </style>
+</resources>

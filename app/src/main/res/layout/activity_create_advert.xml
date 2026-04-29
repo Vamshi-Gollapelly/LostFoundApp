@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create a New Advert"
+            android:textSize="22sp" android:textStyle="bold"
+            android:textColor="#1F3864"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Post type radio -->
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Post type:" android:textStyle="bold"/>
+        <RadioGroup android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+            <RadioButton android:id="@+id/rbLost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lost" android:checked="true"/>
+            <RadioButton android:id="@+id/rbFound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Found"
+                android:layout_marginStart="16dp"/>
+        </RadioGroup>
+
+        <!-- Name -->
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Name:"/>
+        <EditText android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Your name"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Phone -->
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Phone:"/>
+        <EditText android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contact number"
+            android:inputType="phone"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Description -->
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description:"/>
+        <EditText android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Describe the item"
+            android:minLines="3" android:gravity="top"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Category -->
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category:"/>
+        <Spinner android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Date -->
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Date:"/>
+        <EditText android:id="@+id/etDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="dd/MM/yyyy"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Location -->
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location:"/>
+        <EditText android:id="@+id/etLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Where was it lost/found?"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Image Upload -->
+        <Button android:id="@+id/btnUploadImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Image"
+            android:backgroundTint="#2E75B6"
+            android:layout_marginBottom="8dp"/>
+
+        <ImageView android:id="@+id/ivImagePreview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:background="#DDDDDD"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="Preview"/>
+
+        <!-- Save -->
+        <Button android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="SAVE"
+            android:textSize="16sp"
+            android:backgroundTint="#1F3864"/>
+
+    </LinearLayout>
+</ScrollView>
