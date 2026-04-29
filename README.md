@@ -35,6 +35,3 @@ The app lets users post adverts for items they have lost or found. Each post inc
 - `ShowAllItemsActivity.java` loads items from the database and applies category filtering
 - `ItemAdapter.java` binds each item to a card view in the RecyclerView
 
-## AI Declaration
-
-Claude (Anthropic) was used to help scaffold parts of the code and assist with debugging during development. All code was reviewed and understood before being used in the project.
