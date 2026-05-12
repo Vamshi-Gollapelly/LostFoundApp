@@ -2,9 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vamshigollapelly.lostfoundapp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+        android:maxSdkVersion="32"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
 
     <application
         android:allowBackup="true"
@@ -14,7 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LostAndFoundApp">
 
-        <activity android:name=".MainActivity" android:exported="true">
+        <!-- ADD YOUR API KEY HERE -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="Paste Your Key"/>
+
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -26,6 +35,8 @@
         <activity android:name=".ShowAllItemsActivity"
             android:exported="false"/>
         <activity android:name=".ItemDetailActivity"
+            android:exported="false"/>
+        <activity android:name=".MapActivity"
             android:exported="false"/>
 
     </application>

@@ -16,7 +16,6 @@
             android:textColor="#1F3864"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Post type radio -->
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Post type:" android:textStyle="bold"/>
@@ -35,7 +34,6 @@
                 android:layout_marginStart="16dp"/>
         </RadioGroup>
 
-        <!-- Name -->
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:text="Name:"/>
         <EditText android:id="@+id/etName"
@@ -45,7 +43,6 @@
             android:inputType="textPersonName"
             android:layout_marginBottom="12dp"/>
 
-        <!-- Phone -->
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:text="Phone:"/>
         <EditText android:id="@+id/etPhone"
@@ -55,7 +52,6 @@
             android:inputType="phone"
             android:layout_marginBottom="12dp"/>
 
-        <!-- Description -->
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Description:"/>
@@ -66,7 +62,6 @@
             android:minLines="3" android:gravity="top"
             android:layout_marginBottom="12dp"/>
 
-        <!-- Category -->
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Category:"/>
@@ -75,7 +70,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"/>
 
-        <!-- Date -->
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:text="Date:"/>
         <EditText android:id="@+id/etDate"
@@ -84,17 +78,24 @@
             android:hint="dd/MM/yyyy"
             android:layout_marginBottom="12dp"/>
 
-        <!-- Location -->
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Location:"/>
         <EditText android:id="@+id/etLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Where was it lost/found?"
+            android:hint="Tap to search location..."
+            android:focusable="false"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- GET CURRENT LOCATION button -->
+        <Button android:id="@+id/btnGetLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GET CURRENT LOCATION"
+            android:backgroundTint="#27AE60"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Image Upload -->
         <Button android:id="@+id/btnUploadImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -110,7 +111,6 @@
             android:layout_marginBottom="16dp"
             android:contentDescription="Preview"/>
 
-        <!-- Save -->
         <Button android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="56dp"

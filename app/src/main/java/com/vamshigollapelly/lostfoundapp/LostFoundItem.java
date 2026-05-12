@@ -2,7 +2,7 @@ package com.vamshigollapelly.lostfoundapp;
 
 public class LostFoundItem {
     private int    id;
-    private String type;         // "Lost" or "Found"
+    private String type;
     private String name;
     private String phone;
     private String description;
@@ -10,11 +10,13 @@ public class LostFoundItem {
     private String location;
     private String category;
     private String imageUri;
-    private String timestamp;    // Auto-generated
+    private String timestamp;
+    private double latitude;
+    private double longitude;
 
     public LostFoundItem() {}
 
-    // ----- Getters -----
+    // Getters
     public int    getId()           { return id; }
     public String getType()         { return type; }
     public String getName()         { return name; }
@@ -25,8 +27,10 @@ public class LostFoundItem {
     public String getCategory()     { return category; }
     public String getImageUri()     { return imageUri; }
     public String getTimestamp()    { return timestamp; }
+    public double getLatitude()     { return latitude; }
+    public double getLongitude()    { return longitude; }
 
-    // ----- Setters -----
+    // Setters
     public void setId(int id)                  { this.id = id; }
     public void setType(String type)           { this.type = type; }
     public void setName(String name)           { this.name = name; }
@@ -37,5 +41,6 @@ public class LostFoundItem {
     public void setCategory(String category)   { this.category = category; }
     public void setImageUri(String imageUri)   { this.imageUri = imageUri; }
     public void setTimestamp(String timestamp) { this.timestamp = timestamp; }
-
+    public void setLatitude(double latitude)   { this.latitude = latitude; }
+    public void setLongitude(double longitude) { this.longitude = longitude; }
 }

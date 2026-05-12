@@ -1,4 +1,5 @@
 package com.vamshigollapelly.lostfoundapp;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -10,7 +11,7 @@ import java.util.List;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME    = "lostandfound.db";
-    private static final int    DB_VERSION = 1;
+    private static final int    DB_VERSION = 2;
 
     public static final String TABLE   = "items";
     public static final String COL_ID  = "id";
@@ -23,6 +24,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_CAT  = "category";
     public static final String COL_IMG  = "image_uri";
     public static final String COL_STAMP= "timestamp";
+    public static final String COL_LAT  = "latitude";
+    public static final String COL_LNG  = "longitude";
 
     private static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE + " (" +
@@ -31,7 +34,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COL_PHONE+ " TEXT," + COL_DESC + " TEXT," +
                     COL_DATE + " TEXT," + COL_LOC  + " TEXT," +
                     COL_CAT  + " TEXT," + COL_IMG  + " TEXT," +
-                    COL_STAMP+ " TEXT)";
+                    COL_STAMP+ " TEXT," +
+                    COL_LAT  + " REAL DEFAULT 0," +
+                    COL_LNG  + " REAL DEFAULT 0)";
 
     public DatabaseHelper(Context ctx) {
         super(ctx, DB_NAME, null, DB_VERSION);
@@ -43,11 +48,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override public void onUpgrade(SQLiteDatabase db,
                                     int oldV, int newV) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE);
-        onCreate(db);
+        // Add lat/lng columns if upgrading from version 1
+        if (oldV < 2) {
+            db.execSQL("ALTER TABLE " + TABLE +
+                    " ADD COLUMN " + COL_LAT + " REAL DEFAULT 0");
+            db.execSQL("ALTER TABLE " + TABLE +
+                    " ADD COLUMN " + COL_LNG + " REAL DEFAULT 0");
+        }
     }
 
-    /** Insert a new item and return the row ID */
     public long insertItem(LostFoundItem item) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -60,12 +69,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COL_CAT,   item.getCategory());
         cv.put(COL_IMG,   item.getImageUri());
         cv.put(COL_STAMP, item.getTimestamp());
+        cv.put(COL_LAT,   item.getLatitude());
+        cv.put(COL_LNG,   item.getLongitude());
         long id = db.insert(TABLE, null, cv);
         db.close();
         return id;
     }
 
-    /** Get all items; pass null categoryFilter to get all */
     public List<LostFoundItem> getAllItems(String categoryFilter) {
         List<LostFoundItem> list = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
@@ -84,7 +94,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return list;
     }
 
-    /** Get a single item by its ID */
     public LostFoundItem getItemById(int id) {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.query(TABLE, null,
@@ -96,7 +105,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return item;
     }
 
-    /** Delete an item by its ID */
     public void deleteItem(int id) {
         SQLiteDatabase db = getWritableDatabase();
         db.delete(TABLE, COL_ID + "=?",
@@ -116,6 +124,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         item.setCategory(c.getString(c.getColumnIndexOrThrow(COL_CAT)));
         item.setImageUri(c.getString(c.getColumnIndexOrThrow(COL_IMG)));
         item.setTimestamp(c.getString(c.getColumnIndexOrThrow(COL_STAMP)));
+        item.setLatitude(c.getDouble(c.getColumnIndexOrThrow(COL_LAT)));
+        item.setLongitude(c.getDouble(c.getColumnIndexOrThrow(COL_LNG)));
         return item;
     }
 }

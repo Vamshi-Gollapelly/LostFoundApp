@@ -40,6 +40,15 @@
         android:layout_height="56dp"
         android:text="SHOW ALL LOST &amp; FOUND ITEMS"
         android:textSize="16sp"
-        android:backgroundTint="#1F3864"/>
+        android:backgroundTint="#1F3864"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnShowOnMap"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="SHOW ON MAP"
+        android:textSize="16sp"
+        android:backgroundTint="#27AE60"/>
 
 </LinearLayout>
