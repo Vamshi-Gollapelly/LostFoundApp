@@ -6,11 +6,10 @@ An Android app for reporting and finding lost items in your local area. Users po
 
 ## Screenshots
 
-> Add screenshots after running the app on an emulator
-
 | Home | Create Advert | All Items | Map View |
 |---|---|---|---|
-| *(screenshot)* | *(screenshot)* | *(screenshot)* | *(screenshot)* |
+| ![Home](home.png) | ![Create Advert](advert.png) | ![All Items](all-items.png) | ![Map View](map.png) |
+
 
 ---
 
